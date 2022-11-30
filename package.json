@@ -35,13 +35,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/MonkZL/react-native-xfspeech.git",
+  "repository": "https://github.com/MonkZL/react-native-xfspeech",
   "author": "zhangliang <695678923@qq.com> (https://monkzl.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MonkZL/react-native-xfspeech.git/issues"
+    "url": "https://github.com/MonkZL/react-native-xfspeech/issues"
   },
-  "homepage": "https://github.com/MonkZL/react-native-xfspeech.git#readme",
+  "homepage": "https://github.com/MonkZL/react-native-xfspeech#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

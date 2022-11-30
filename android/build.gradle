@@ -49,6 +49,12 @@ android {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
+
+  sourceSets {
+    main {
+      jniLibs.srcDirs = ['libs']
+    }
+  }
 }
 
 repositories {
@@ -126,6 +132,7 @@ dependencies {
     //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
 // From node_modules
+  implementation files('libs/Msc.jar')
 }
 
 if (isNewArchitectureEnabled()) {

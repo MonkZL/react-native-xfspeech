@@ -6,7 +6,9 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-const Xfspeech = NativeModules.Xfspeech  ? NativeModules.Xfspeech  : new Proxy(
+const Xfspeech = NativeModules.Xfspeech
+  ? NativeModules.Xfspeech
+  : new Proxy(
       {},
       {
         get() {
@@ -15,6 +17,6 @@ const Xfspeech = NativeModules.Xfspeech  ? NativeModules.Xfspeech  : new Proxy(
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return Xfspeech.multiply(a, b);
+export function init(appId: string): Promise<number> {
+  return Xfspeech.init(appId);
 }

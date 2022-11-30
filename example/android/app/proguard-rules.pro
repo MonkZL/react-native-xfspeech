@@ -11,3 +11,7 @@
 
 -keep class com.facebook.hermes.unicode.** { *; }
 -keep class com.facebook.jni.** { *; }
+
+# react-native-xfspeech
+-keep class com.iflytek.**{*;}
+-keepattributes Signature
