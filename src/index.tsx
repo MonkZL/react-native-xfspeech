@@ -1,4 +1,4 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
 
 const LINKING_ERROR =
   `The package 'react-native-xfspeech' doesn't seem to be linked. Make sure: \n\n` +
@@ -17,6 +17,67 @@ const Xfspeech = NativeModules.Xfspeech
       }
     );
 
-export function init(appId: string): Promise<number> {
+const eventEmitter = new NativeEventEmitter(NativeModules.Xfspeech);
+
+/**
+ * 初始化sdk的方法
+ * @param appId
+ */
+export function init(appId: string): Promise<boolean> {
   return Xfspeech.init(appId);
+}
+
+type StartConfigType = {
+  cloud_grammar: string;
+  subject: string;
+  result_type: string;
+  engine_type: string;
+  language: string;
+  accent: string;
+  vad_bos: string;
+  vad_eos: string;
+  asr_ptt: string;
+};
+
+/**
+ * 开始的方法
+ * @param config
+ */
+export function start(config: Partial<StartConfigType>): Promise<boolean> {
+  return Xfspeech.start(config);
+}
+
+type NoValueCallBackType = () => void;
+type ValueCallBackType = (event: any) => void;
+
+/**
+ * 开始的回调
+ * @param callback
+ */
+export function onBeginOfSpeech(callback: NoValueCallBackType) {
+  return eventEmitter.addListener('onBeginOfSpeech', callback);
+}
+
+/**
+ * 结束的回调
+ * @param callback
+ */
+export function onEndOfSpeech(callback: NoValueCallBackType) {
+  return eventEmitter.addListener('onEndOfSpeech', callback);
+}
+
+/**
+ * 返回结果的回调
+ * @param callback
+ */
+export function onResult(callback: ValueCallBackType) {
+  return eventEmitter.addListener('onResult', callback);
+}
+
+/**
+ * 报错的回调
+ * @param callback
+ */
+export function onError(callback: NoValueCallBackType) {
+  return eventEmitter.addListener('onError', callback);
 }

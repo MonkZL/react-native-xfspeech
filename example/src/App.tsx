@@ -1,17 +1,50 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { init } from 'react-native-xfspeech';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {
+  init,
+  onBeginOfSpeech,
+  onEndOfSpeech,
+  onError,
+  onResult,
+  start,
+} from 'react-native-xfspeech';
 
 export default function App() {
-  React.useEffect(() => {
-    init('72da4785').then(() => {});
+  useEffect(() => {
+    init('72da4785').then(() => {
+      console.log('initSdk');
+    });
+    let onBeginOfSpeechListener = onBeginOfSpeech(() => {
+      console.log('onBeginOfSpeech');
+    });
+    let onEndOfSpeechListener = onEndOfSpeech(() => {
+      console.log('onEndOfSpeech');
+    });
+    let onResultListener = onResult((event) => {
+      console.log('onResult', event);
+    });
+    let onErrorListener = onError(() => {
+      console.log('onError');
+    });
+    return () => {
+      onBeginOfSpeechListener.remove();
+      onEndOfSpeechListener.remove();
+      onResultListener.remove();
+      onErrorListener.remove();
+    };
   }, []);
-
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => {
+        start({}).then(() => {
+          console.log('start');
+        });
+      }}
+      style={styles.container}
+    >
       <Text>Result: {111}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
