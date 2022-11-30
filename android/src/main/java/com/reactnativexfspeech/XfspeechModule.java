@@ -1,12 +1,9 @@
 package com.reactnativexfspeech;
 
-
 import android.app.Activity;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -23,9 +20,6 @@ import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechUtility;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @ReactModule(name = XfspeechModule.NAME)
 public class XfspeechModule extends ReactContextBaseJavaModule implements RecognizerListener {
@@ -143,21 +137,5 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
     context
       .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
       .emit(eventName, params);
-  }
-
-  @Nullable
-  @Override
-  public Map<String, Object> getConstants() {
-    final Map<String, Object> constants = new HashMap<>();
-    constants.put("CLOUD_GRAMMAR", SpeechConstant.CLOUD_GRAMMAR);
-    constants.put("SUBJECT", SpeechConstant.SUBJECT);
-    constants.put("RESULT_TYPE", SpeechConstant.RESULT_TYPE);
-    constants.put("ENGINE_TYPE", SpeechConstant.ENGINE_TYPE);
-    constants.put("LANGUAGE", SpeechConstant.LANGUAGE);
-    constants.put("ACCENT", SpeechConstant.ACCENT);
-    constants.put("VAD_BOS", SpeechConstant.VAD_BOS);
-    constants.put("VAD_EOS", SpeechConstant.VAD_EOS);
-    constants.put("ASR_PTT", SpeechConstant.ASR_PTT);
-    return constants;
   }
 }
