@@ -9,7 +9,7 @@ npm i @zhangliang_code/react-native-xfspeech
 ## Install
 
 ### Android
-
+app 文件夹下面 proguard-rules.pro 中添加
 ```
 # @zhangliang_code/react-native-xfspeech
 -keep class com.iflytek.**{*;}
