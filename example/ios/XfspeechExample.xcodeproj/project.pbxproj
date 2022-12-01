@@ -12,6 +12,19 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C64DB4C3293760D1008B38F1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4C2293760D1008B38F1 /* libz.tbd */; };
+		C64DB4C5293760DA008B38F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4C4293760DA008B38F1 /* AVFoundation.framework */; };
+		C64DB4C7293760F1008B38F1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4C6293760F1008B38F1 /* SystemConfiguration.framework */; };
+		C64DB4C9293760FA008B38F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4C8293760FA008B38F1 /* Foundation.framework */; };
+		C64DB4CB29376101008B38F1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4CA29376101008B38F1 /* CoreTelephony.framework */; };
+		C64DB4CD29376108008B38F1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4CC29376108008B38F1 /* AudioToolbox.framework */; };
+		C64DB4CF29376110008B38F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4CE29376110008B38F1 /* UIKit.framework */; };
+		C64DB4D129376117008B38F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4D029376117008B38F1 /* CoreLocation.framework */; };
+		C64DB4D32937611E008B38F1 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4D22937611E008B38F1 /* Contacts.framework */; };
+		C64DB4D529376125008B38F1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4D429376125008B38F1 /* AddressBook.framework */; };
+		C64DB4D72937612B008B38F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4D62937612B008B38F1 /* QuartzCore.framework */; };
+		C64DB4D929376135008B38F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4D829376135008B38F1 /* CoreGraphics.framework */; };
+		C64DB4DB2937613C008B38F1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4DA2937613C008B38F1 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +38,19 @@
 		5709B34CF0A7D63546082F79 /* Pods-XfspeechExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XfspeechExample.release.xcconfig"; path = "Target Support Files/Pods-XfspeechExample/Pods-XfspeechExample.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-XfspeechExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XfspeechExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = XfspeechExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C64DB4C2293760D1008B38F1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C64DB4C4293760DA008B38F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C64DB4C6293760F1008B38F1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C64DB4C8293760FA008B38F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C64DB4CA29376101008B38F1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C64DB4CC29376108008B38F1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C64DB4CE29376110008B38F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C64DB4D029376117008B38F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C64DB4D22937611E008B38F1 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		C64DB4D429376125008B38F1 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		C64DB4D62937612B008B38F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C64DB4D829376135008B38F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C64DB4DA2937613C008B38F1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -33,6 +59,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64DB4DB2937613C008B38F1 /* libc++.tbd in Frameworks */,
+				C64DB4D929376135008B38F1 /* CoreGraphics.framework in Frameworks */,
+				C64DB4D72937612B008B38F1 /* QuartzCore.framework in Frameworks */,
+				C64DB4D529376125008B38F1 /* AddressBook.framework in Frameworks */,
+				C64DB4D32937611E008B38F1 /* Contacts.framework in Frameworks */,
+				C64DB4D129376117008B38F1 /* CoreLocation.framework in Frameworks */,
+				C64DB4CF29376110008B38F1 /* UIKit.framework in Frameworks */,
+				C64DB4CD29376108008B38F1 /* AudioToolbox.framework in Frameworks */,
+				C64DB4CB29376101008B38F1 /* CoreTelephony.framework in Frameworks */,
+				C64DB4C9293760FA008B38F1 /* Foundation.framework in Frameworks */,
+				C64DB4C7293760F1008B38F1 /* SystemConfiguration.framework in Frameworks */,
+				C64DB4C5293760DA008B38F1 /* AVFoundation.framework in Frameworks */,
+				C64DB4C3293760D1008B38F1 /* libz.tbd in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-XfspeechExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +95,19 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C64DB4DA2937613C008B38F1 /* libc++.tbd */,
+				C64DB4D829376135008B38F1 /* CoreGraphics.framework */,
+				C64DB4D62937612B008B38F1 /* QuartzCore.framework */,
+				C64DB4D429376125008B38F1 /* AddressBook.framework */,
+				C64DB4D22937611E008B38F1 /* Contacts.framework */,
+				C64DB4D029376117008B38F1 /* CoreLocation.framework */,
+				C64DB4CE29376110008B38F1 /* UIKit.framework */,
+				C64DB4CC29376108008B38F1 /* AudioToolbox.framework */,
+				C64DB4CA29376101008B38F1 /* CoreTelephony.framework */,
+				C64DB4C8293760FA008B38F1 /* Foundation.framework */,
+				C64DB4C6293760F1008B38F1 /* SystemConfiguration.framework */,
+				C64DB4C4293760DA008B38F1 /* AVFoundation.framework */,
+				C64DB4C2293760D1008B38F1 /* libz.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-XfspeechExample.a */,
 			);
@@ -306,6 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = XfspeechExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
