@@ -12,7 +12,7 @@ import {
 
 export default function App() {
   useEffect(() => {
-    init('72da4785').then(() => {
+    init('你的appId').then(() => {
       console.log('initSdk');
     });
     let onBeginOfSpeechListener = onBeginOfSpeech(() => {
@@ -43,7 +43,7 @@ export default function App() {
       }}
       style={styles.container}
     >
-      <Text>Result: {111}</Text>
+      <Text>start</Text>
     </TouchableOpacity>
   );
 }
