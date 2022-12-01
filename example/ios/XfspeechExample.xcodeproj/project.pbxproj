@@ -25,6 +25,8 @@
 		C64DB4D72937612B008B38F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4D62937612B008B38F1 /* QuartzCore.framework */; };
 		C64DB4D929376135008B38F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4D829376135008B38F1 /* CoreGraphics.framework */; };
 		C64DB4DB2937613C008B38F1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C64DB4DA2937613C008B38F1 /* libc++.tbd */; };
+		C66DF3C029389723004794DD /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66DF3BF29389723004794DD /* iflyMSC.framework */; };
+		C6C4438129388BA100C62147 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C4438029388BA100C62147 /* libz.1.2.5.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		C64DB4D62937612B008B38F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C64DB4D829376135008B38F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C64DB4DA2937613C008B38F1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C66DF3BF29389723004794DD /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = ../../ios/lib/iflyMSC.framework; sourceTree = "<group>"; };
+		C6C4438029388BA100C62147 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -59,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66DF3C029389723004794DD /* iflyMSC.framework in Frameworks */,
+				C6C4438129388BA100C62147 /* libz.1.2.5.tbd in Frameworks */,
 				C64DB4DB2937613C008B38F1 /* libc++.tbd in Frameworks */,
 				C64DB4D929376135008B38F1 /* CoreGraphics.framework in Frameworks */,
 				C64DB4D72937612B008B38F1 /* QuartzCore.framework in Frameworks */,
@@ -95,6 +101,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C66DF3BF29389723004794DD /* iflyMSC.framework */,
+				C6C4438029388BA100C62147 /* libz.1.2.5.tbd */,
 				C64DB4DA2937613C008B38F1 /* libc++.tbd */,
 				C64DB4D829376135008B38F1 /* CoreGraphics.framework */,
 				C64DB4D62937612B008B38F1 /* QuartzCore.framework */,
@@ -332,7 +340,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZXTES4W259;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Flipper-DoubleConversion/Frameworks\"",
+					"\"${PODS_ROOT}/Flipper-Glog/Frameworks\"",
+					"\"${PODS_ROOT}/OpenSSL-Universal/Frameworks\"",
+					"\"${PODS_ROOT}/hermes-engine/destroot/Library/Frameworks/universal\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/Flipper-DoubleConversion\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/Flipper-Glog\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine\"",
+					"\"$(SRCROOT)/../../ios/lib\"",
+				);
 				INFOPLIST_FILE = XfspeechExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -358,7 +380,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZXTES4W259;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				INFOPLIST_FILE = XfspeechExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -407,6 +431,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -478,6 +503,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;

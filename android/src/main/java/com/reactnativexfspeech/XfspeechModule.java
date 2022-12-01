@@ -2,8 +2,10 @@ package com.reactnativexfspeech;
 
 import android.app.Activity;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -21,10 +23,15 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechUtility;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
 @ReactModule(name = XfspeechModule.NAME)
 public class XfspeechModule extends ReactContextBaseJavaModule implements RecognizerListener {
   public static final String NAME = "Xfspeech";
   private ReactContext context;
+  private SpeechRecognizer mIat;
 
   public XfspeechModule(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -69,9 +76,12 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
 //    vadEos = vadEos == null ? "1000" : vadEos;
 //    asrPtt = asrPtt == null ? "1" : asrPtt;
 
+    if (mIat != null && mIat.isListening()) {
+      mIat.cancel();
+    }
     //初始化识别无UI识别对象
     //使用SpeechRecognizer对象，可根据回调消息自定义界面；
-    SpeechRecognizer mIat = SpeechRecognizer.createRecognizer(currentActivity, i -> promise.resolve(true));
+    mIat = SpeechRecognizer.createRecognizer(currentActivity, i -> promise.resolve(true));
     //设置语法ID和 SUBJECT 为空，以免因之前有语法调用而设置了此参数；或直接清空所有参数，具体可参考 DEMO 的示例。
     mIat.setParameter(SpeechConstant.CLOUD_GRAMMAR, cloudGrammar);
     mIat.setParameter(SpeechConstant.SUBJECT, subject);
@@ -95,6 +105,13 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
     mIat.startListening(this);
   }
 
+  @ReactMethod
+  public void cancel() {
+    if (mIat.isListening()) {
+      mIat.cancel();
+    }
+  }
+
   @Override
   public void onVolumeChanged(int i, byte[] bytes) {
     //todo
@@ -112,14 +129,19 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
 
   @Override
   public void onResult(RecognizerResult recognizerResult, boolean b) {
+    String text = parseIatResult(recognizerResult.getResultString());
     WritableMap params = Arguments.createMap();
-    params.putString("recognizerResult", recognizerResult.getResultString());
+    params.putString("recognizerResult", text);
+    params.putBoolean("isLast", b);
     sendEvent("onResult", params);
   }
 
   @Override
   public void onError(SpeechError speechError) {
-    sendEvent("onError", null);
+    WritableMap params = Arguments.createMap();
+    params.putInt("code", speechError.getErrorCode());
+    params.putString("msg", speechError.getMessage());
+    sendEvent("onError", params);
   }
 
   @Override
@@ -137,5 +159,23 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
     context
       .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
       .emit(eventName, params);
+  }
+
+  private static String parseIatResult(String json) {
+    StringBuilder ret = new StringBuilder();
+    try {
+      JSONTokener tokener = new JSONTokener(json);
+      JSONObject joResult = new JSONObject(tokener);
+      JSONArray words = joResult.getJSONArray("ws");
+      for (int i = 0; i < words.length(); i++) {
+        // 转写结果词，默认使用第一个结果
+        JSONArray items = words.getJSONObject(i).getJSONArray("cw");
+        JSONObject obj = items.getJSONObject(0);
+        ret.append(obj.getString("w"));
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return ret.toString();
   }
 }

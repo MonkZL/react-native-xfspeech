@@ -1,10 +1,16 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
-#import "lib/iflyMSC.framework/Headers/IFlyMSC.h"
+#import "IFlySpeechRecognizerDelegate.h"
+#import "IFlySpeechRecognizer.h"
+#import "IFlySpeechConstant.h"
+#import "IFlySpeechUtility.h"
 
-@interface Xfspeech : RCTEventEmitter <RCTBridgeModule, IFlySpeechRecognizerDelegate> 
 
-//不带界面的识别对象
-@property (nonatomic, strong) IFlySpeechRecognizer *iFlySpeechRecognizer;
+@interface Xfspeech : RCTEventEmitter <RCTBridgeModule, IFlySpeechRecognizerDelegate>
+
+@property (nonatomic, strong) IFlySpeechRecognizer * iFlySpeechRecognizer;
+@property (nonatomic) NSTimeInterval startTime;
+@property (nonatomic) NSTimeInterval endTime;
+@property (nonatomic, strong) NSMutableString * result;
 
 @end

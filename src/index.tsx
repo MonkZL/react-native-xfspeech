@@ -44,6 +44,13 @@ type StartConfigType = {
  * @param config
  */
 export function start(config: Partial<StartConfigType>): Promise<boolean> {
+  config.result_type = config.result_type || 'json';
+  config.engine_type = config.engine_type || 'cloud';
+  config.language = config.language || 'zh_cn';
+  config.accent = config.accent || 'mandarin';
+  config.vad_bos = config.vad_bos || '4000';
+  config.vad_eos = config.vad_eos || '1000';
+  config.asr_ptt = config.asr_ptt || '1';
   return Xfspeech.start(config);
 }
 
@@ -78,6 +85,6 @@ export function onResult(callback: ValueCallBackType) {
  * 报错的回调
  * @param callback
  */
-export function onError(callback: NoValueCallBackType) {
+export function onError(callback: ValueCallBackType) {
   return eventEmitter.addListener('onError', callback);
 }

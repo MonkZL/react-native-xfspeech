@@ -24,8 +24,8 @@ export default function App() {
     let onResultListener = onResult((event) => {
       console.log('onResult', event);
     });
-    let onErrorListener = onError(() => {
-      console.log('onError');
+    let onErrorListener = onError((event) => {
+      console.log('onError', event);
     });
     return () => {
       onBeginOfSpeechListener.remove();
