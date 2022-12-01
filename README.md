@@ -60,7 +60,7 @@ iOS 10发布以来，苹果为了用户信息安全，加入隐私权限设置�
 <string></string>
 ```
 ## Usage
-
+***涉及到使用权限的问题需要自己单独处理***
 ```js
 import React, { useEffect } from 'react';
 
