@@ -18,7 +18,7 @@ app 文件夹下面 proguard-rules.pro 中添加
 
 ### IOS
 #### 添加库
-将开发工具包中lib目录下的iflyMSC.framework添加到工程中。同时请将Demo中依赖的其他库也添加到工程中。 按下图示例添加 SDK 所需要的 iOS系统库
+打开项目 target->build phases->Link Binary With Libraries 中添加
 ```
 库名称	                添加范围	功能
 iflyMSC.framework	必要	讯飞开放平台静态库。 （这个在node_modules/@zhangliang_code/react-native-xfspeech/ios/lib下面）
