@@ -1,6 +1,6 @@
 {
   "name": "@zhangliang_code/react-native-xfspeech",
-  "version": "0.1.9",
+  "version": "0.1.0",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
