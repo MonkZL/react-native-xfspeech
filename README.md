@@ -139,6 +139,19 @@ asrPtt        1
 ```
 
 
+## FAQ
+IOS 由于讯飞sdk的原因会在这段代码导致崩溃 将方法内部全部注释即可
+```
+inline void LogDestination::SetLogDestination(LogSeverity severity,
+					      const char* base_filename) {
+//  assert(severity >= 0 && severity < NUM_SEVERITIES);
+//  // Prevent any subtle race conditions by wrapping a mutex lock around
+//  // all this stuff.
+//  MutexLock l(&log_mutex);
+//  log_destination(severity)->fileobject_.SetBasename(base_filename);
+}
+```
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
