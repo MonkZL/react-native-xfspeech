@@ -115,7 +115,7 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
   @Override
   public void onVolumeChanged(int i, byte[] bytes) {
    WritableMap params = Arguments.createMap();
-   params.putString("volume", volume);
+   params.putInt("volume", i);
    sendEvent("onVolumeChanged", params);
   }
 
