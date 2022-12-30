@@ -54,6 +54,13 @@ export function start(config: Partial<StartConfigType>): Promise<boolean> {
   return Xfspeech.start(config);
 }
 
+/**
+ * 结束的方法
+ */
+export function cancel() {
+  Xfspeech.cancel();
+}
+
 type NoValueCallBackType = () => void;
 type ValueCallBackType = (event: any) => void;
 
