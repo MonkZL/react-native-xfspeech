@@ -88,3 +88,11 @@ export function onResult(callback: ValueCallBackType) {
 export function onError(callback: ValueCallBackType) {
   return eventEmitter.addListener('onError', callback);
 }
+
+/**
+ * 音量的回调
+ * @param callback
+ */
+export function onVolumeChanged(callback: ValueCallBackType) {
+  return eventEmitter.addListener('onVolumeChanged', callback);
+}

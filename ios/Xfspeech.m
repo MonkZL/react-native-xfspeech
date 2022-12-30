@@ -15,7 +15,7 @@ RCT_REMAP_METHOD(init,
                  withRejecter:(RCTPromiseRejectBlock)reject)
 {
     NSString * initIFlytekString = [[NSString alloc] initWithFormat: @"appid=%@", appId];
-    
+
     [IFlySpeechUtility createUtility: initIFlytekString];
     resolve(@YES);
 }
@@ -28,7 +28,7 @@ RCT_REMAP_METHOD(start,
     if(_iFlySpeechRecognizer != nil && [_iFlySpeechRecognizer isListening]){
         [_iFlySpeechRecognizer cancel];
     }
-    
+
     NSString * cloudGrammar = config[[IFlySpeechConstant CLOUD_GRAMMAR]];
     NSString * subject = config[[IFlySpeechConstant SUBJECT]];
     NSString * resultType = config[[IFlySpeechConstant RESULT_TYPE]];
@@ -62,7 +62,7 @@ RCT_EXPORT_METHOD(cancel) {
 }
 
 - (NSArray<NSString *> *)supportedEvents{
-    return @[@"onBeginOfSpeech",@"onEndOfSpeech",@"onResult",@"onError"];
+    return @[@"onBeginOfSpeech",@"onEndOfSpeech",@"onResult",@"onError",@"onVolumeChanged"];
 }
 
 - (void) onBeginOfSpeech{
@@ -76,13 +76,13 @@ RCT_EXPORT_METHOD(cancel) {
 - (void) onResults:(NSArray *)results isLast:(BOOL)isLast{
     NSMutableString * resultString = [NSMutableString new];
     NSDictionary * dic = results[0];
-    
+
     for (NSString * key in dic) {
         [resultString appendFormat:@"%@",key];
     }
 
     NSString * resultFromJson = [self stringFromJson:resultString];
-    
+
     [self.result appendString: resultFromJson];
     NSDictionary * result = @{
                               @"recognizerResult": resultFromJson,
@@ -99,6 +99,10 @@ RCT_EXPORT_METHOD(cancel) {
 }
 
 - (void) onVolumeChanged: (int)volume {
+    NSDictionary * result = @{
+                                 @"volume": [NSNumber numberWithInt:volume]
+                                 };
+   [self sendEventWithName: @"onVolumeChanged" body: result];
 }
 
 - (void) onEvent:(int)eventType arg0:(int)arg0 arg1:(int)arg1 data:(NSData *)eventData{
@@ -111,18 +115,18 @@ RCT_EXPORT_METHOD(cancel) {
     if (params == NULL) {
         return nil;
     }
-    
+
     NSMutableString *tempStr = [[NSMutableString alloc] init];
     NSDictionary *resultDic  = [NSJSONSerialization JSONObjectWithData:
                                 [params dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-    
+
     if (resultDic!= nil) {
         NSArray *wordArray = [resultDic objectForKey:@"ws"];
-        
+
         for (int i = 0; i < [wordArray count]; i++) {
             NSDictionary *wsDic = [wordArray objectAtIndex: i];
             NSArray *cwArray = [wsDic objectForKey:@"cw"];
-            
+
             for (int j = 0; j < [cwArray count]; j++) {
                 NSDictionary *wDic = [cwArray objectAtIndex:j];
                 NSString *str = [wDic objectForKey:@"w"];
