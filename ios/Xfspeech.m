@@ -93,7 +93,8 @@ RCT_EXPORT_METHOD(cancel) {
 
 - (void)onCompleted:(IFlySpeechError *)errorCode {
     NSDictionary * result = @{
-                              @"code": errorCode
+                              @"code": [NSNumber numberWithInt: errorCode.errorCode],
+                              @"msg": [NSNumber numberWithInt: errorCode.errorDesc],
                               };
     [self sendEventWithName: @"onError" body: result];
 }
