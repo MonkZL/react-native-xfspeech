@@ -3,6 +3,7 @@
 #import "IFlySpeechRecognizer.h"
 #import "IFlySpeechConstant.h"
 #import "IFlySpeechUtility.h"
+#import "IFlySpeechError.h"
 
 @implementation Xfspeech
 RCT_EXPORT_MODULE()

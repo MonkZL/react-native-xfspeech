@@ -4,6 +4,7 @@
 #import "IFlySpeechRecognizer.h"
 #import "IFlySpeechConstant.h"
 #import "IFlySpeechUtility.h"
+#import "IFlySpeechError.h"
 
 
 @interface Xfspeech : RCTEventEmitter <RCTBridgeModule, IFlySpeechRecognizerDelegate>
