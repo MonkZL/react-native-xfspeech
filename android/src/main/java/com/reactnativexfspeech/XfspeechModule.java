@@ -107,7 +107,7 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
 
   @ReactMethod
   public void cancel() {
-    if (mIat.isListening()) {
+    if (mIat != null && mIat.isListening()) {
       mIat.cancel();
     }
   }

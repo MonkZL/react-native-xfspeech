@@ -57,7 +57,7 @@ RCT_REMAP_METHOD(start,
 }
 
 RCT_EXPORT_METHOD(cancel) {
-    if ([_iFlySpeechRecognizer isListening]) {
+    if (_iFlySpeechRecognizer != nil && [_iFlySpeechRecognizer isListening]) {
         [_iFlySpeechRecognizer cancel];
     }
 }
