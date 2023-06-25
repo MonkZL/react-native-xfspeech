@@ -16,6 +16,7 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -81,7 +82,12 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
     }
     //初始化识别无UI识别对象
     //使用SpeechRecognizer对象，可根据回调消息自定义界面；
-    mIat = SpeechRecognizer.createRecognizer(currentActivity, i -> promise.resolve(true));
+    mIat = SpeechRecognizer.createRecognizer(currentActivity, new InitListener() {
+		@Override
+		public void onInit(int i) {
+
+		}
+	});
     //设置语法ID和 SUBJECT 为空，以免因之前有语法调用而设置了此参数；或直接清空所有参数，具体可参考 DEMO 的示例。
     mIat.setParameter(SpeechConstant.CLOUD_GRAMMAR, cloudGrammar);
     mIat.setParameter(SpeechConstant.SUBJECT, subject);
@@ -103,6 +109,7 @@ public class XfspeechModule extends ReactContextBaseJavaModule implements Recogn
     mIat.setParameter(SpeechConstant.ASR_PTT, asrPtt);
     //开始识别，并设置监听器
     mIat.startListening(this);
+	  promise.resolve(true);
   }
 
   @ReactMethod
